@@ -60,7 +60,10 @@ export function ColorWords({
   );
 }
 
-/** Header / footer wordmark: Split (paper) + Take (warm) + Media (cool). */
+/**
+ * Locked Split Take Media wordmark — same mark across every design option.
+ * Colors are hard-coded so theme CSS variables cannot recolor the logo.
+ */
 export function BrandMark({
   size = "sm",
   className = "",
@@ -74,16 +77,18 @@ export function BrandMark({
       : "display text-xl tracking-tight md:text-2xl";
   const mediaClass =
     size === "lg"
-      ? "ml-2 text-sm uppercase tracking-[0.2em] text-cool md:text-base"
-      : "ml-1 text-[10px] uppercase tracking-[0.2em] text-cool";
+      ? "ml-2 text-sm uppercase tracking-[0.2em] md:text-base"
+      : "ml-1 text-[10px] uppercase tracking-[0.2em]";
 
   return (
-    <span className={`inline-flex items-baseline ${className}`}>
+    <span className={`brand-mark inline-flex items-baseline ${className}`}>
       <span className={titleClass}>
-        <span className="text-paper">Split</span>
-        <span className="text-warm">Take</span>
+        <span style={{ color: "#f5f2ed" }}>Split</span>
+        <span style={{ color: "#f5821f" }}>Take</span>
       </span>
-      <span className={mediaClass}>Media</span>
+      <span className={mediaClass} style={{ color: "#1e9bd7" }}>
+        Media
+      </span>
     </span>
   );
 }

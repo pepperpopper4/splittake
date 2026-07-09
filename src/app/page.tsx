@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { ColorWords } from "@/components/ColorWords";
+import { HomeHero } from "@/components/HomeHero";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
-import { VideoEmbed } from "@/components/VideoEmbed";
 import { SectionHeading, TextLink } from "@/components/SectionHeading";
 import { getFeaturedProjects } from "@/data/projects";
-import { site } from "@/data/site";
 import { testimonials } from "@/data/testimonials";
 
 export default function HomePage() {
@@ -13,40 +12,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 pt-10 md:grid-cols-2 md:gap-12 md:px-8 md:pb-24 md:pt-16">
-        <div className="fade-up">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-sun">
-            {site.name}
-          </p>
-          <h1 className="display text-[clamp(3.2rem,11vw,6.5rem)] leading-[0.88]">
-            <span className="text-paper">Split</span>
-            <br />
-            <span className="text-warm">Take</span>
-          </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-paper/75">
-            {site.tagline}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn-primary">
-              Start a project
-            </Link>
-            <Link href="/work" className="btn-ghost">
-              See the work
-            </Link>
-          </div>
-        </div>
-
-        <div className="fade-up stagger-2 grind-panel p-2 md:p-3">
-          <div className="relative z-10 overflow-hidden">
-            <VideoEmbed
-              vimeoId={site.showreelVimeoId}
-              title="Split Take showreel"
-              autoplay
-              muted
-            />
-          </div>
-        </div>
-      </section>
+      <HomeHero />
 
       <section className="band-white">
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
