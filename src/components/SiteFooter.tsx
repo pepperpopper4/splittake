@@ -14,7 +14,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-cool">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
               Navigate
             </p>
             <ul className="space-y-2">
@@ -32,7 +32,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-cool">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-pink">
               Connect
             </p>
             <ul className="space-y-2">
