@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ColorWords } from "@/components/ColorWords";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import {
   categoryLabels,
@@ -35,12 +36,14 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <article>
       <div className="mx-auto max-w-7xl px-5 pt-14 pb-10 md:px-8 md:pt-20 md:pb-14">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-warm">
           {categoryLabels[project.category]} · {project.year}
         </p>
-        <h1 className="blot-text display mb-8 text-5xl md:text-7xl">
-          {project.title}
-        </h1>
+        <ColorWords
+          as="h1"
+          text={project.title}
+          className="display blot-text mb-8 text-5xl md:text-7xl"
+        />
 
         <div className="grind-panel p-2 md:p-3">
           <div className="relative z-10">

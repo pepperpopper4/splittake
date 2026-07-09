@@ -20,7 +20,7 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
   return (
     <div className="grind-panel p-8 md:p-12">
       <div className="relative z-10">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-cool">
           Word on the cut
         </p>
         <blockquote className="display max-w-3xl text-3xl leading-tight text-paper md:text-5xl">

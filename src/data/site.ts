@@ -5,8 +5,9 @@ export const site = {
     "A two-person film studio making bold commercial work, sharp social content, and post-production that actually lands.",
   email: "hello@splittakemedia.com", // TODO: replace with real email
   social: {
-    // TODO: replace with real profile URLs
-    instagram: "https://instagram.com/splittakemedia",
+    instagram: "https://www.instagram.com/splittake.media/",
+    instagramHandle: "@splittake.media",
+    // TODO: replace with real profile URLs when ready
     vimeo: "https://vimeo.com/splittakemedia",
     youtube: "https://youtube.com/@splittakemedia",
   },

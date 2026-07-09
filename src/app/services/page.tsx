@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ColorWords } from "@/components/ColorWords";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceBlock } from "@/components/ServiceBlock";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
@@ -44,11 +45,11 @@ export default function ServicesPage() {
           <div className="grind-panel p-8 md:p-12">
             <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
-                <h2 className="blot-text display text-4xl md:text-6xl">
-                  Request a
-                  <br />
-                  custom quote
-                </h2>
+                <ColorWords
+                  as="h2"
+                  text={"Request a\ncustom quote"}
+                  className="display blot-text text-4xl md:text-6xl"
+                />
                 <p className="mt-4 max-w-md text-paper/70">
                   Tell us the brief. We&apos;ll come back with a clear scope and
                   number — no mystery fees.

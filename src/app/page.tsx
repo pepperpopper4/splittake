@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ColorWords } from "@/components/ColorWords";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { VideoEmbed } from "@/components/VideoEmbed";
@@ -17,10 +18,10 @@ export default function HomePage() {
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-sun">
             {site.name}
           </p>
-          <h1 className="blot-text display text-[clamp(3.2rem,11vw,6.5rem)] leading-[0.88]">
-            Split
+          <h1 className="display text-[clamp(3.2rem,11vw,6.5rem)] leading-[0.88]">
+            <span className="text-paper">Split</span>
             <br />
-            Take
+            <span className="text-warm">Take</span>
           </h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-paper/75">
             {site.tagline}
@@ -80,14 +81,14 @@ export default function HomePage() {
           <div className="grind-panel overflow-hidden p-8 md:p-14">
             <div className="relative z-10 grid gap-8 md:grid-cols-[1.4fr_auto] md:items-end">
               <div>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-cool">
                   Next up
                 </p>
-                <h2 className="blot-text display text-5xl md:text-7xl">
-                  Got a story
-                  <br />
-                  to shoot?
-                </h2>
+                <ColorWords
+                  as="h2"
+                  text={"Got a story\nto shoot?"}
+                  className="display blot-text text-5xl md:text-7xl"
+                />
                 <p className="mt-5 max-w-lg text-paper/70">
                   Commercial, social, or post — tell us what you&apos;re making
                   and we&apos;ll send a custom quote.

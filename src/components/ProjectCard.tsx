@@ -8,6 +8,27 @@ const aspectClass: Record<Project["aspect"], string> = {
   square: "aspect-square",
 };
 
+const categoryAccent: Record<Project["category"], string> = {
+  commercial: "text-warm",
+  social: "text-cool",
+  post: "text-violet",
+};
+
+const titleAccents = [
+  "text-paper",
+  "text-warm",
+  "text-cool",
+  "text-sun",
+  "text-pink",
+  "text-violet",
+];
+
+function titleAccentFor(slug: string) {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) hash = (hash + slug.charCodeAt(i) * (i + 1)) % titleAccents.length;
+  return titleAccents[hash];
+}
+
 export function ProjectCard({
   project,
   large = false,
@@ -36,10 +57,18 @@ export function ProjectCard({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-            <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-lime">
+            <p
+              className={`mb-1 text-[10px] font-semibold uppercase tracking-[0.16em] ${
+                categoryAccent[project.category]
+              }`}
+            >
               {categoryLabels[project.category]} · {project.year}
             </p>
-            <h3 className="display text-2xl text-paper md:text-3xl">{project.title}</h3>
+            <h3
+              className={`display text-2xl md:text-3xl ${titleAccentFor(project.slug)}`}
+            >
+              {project.title}
+            </h3>
           </div>
         </div>
       </article>

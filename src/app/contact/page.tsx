@@ -32,7 +32,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href={`mailto:${site.email}`}
-                  className="mt-1 inline-block text-lg text-warm transition-colors hover:text-lime"
+                  className="mt-1 inline-block text-lg text-warm transition-colors hover:text-cool"
                 >
                   {site.email}
                 </a>
@@ -40,19 +40,23 @@ export default function ContactPage() {
 
               <div>
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-cool">
-                  Social
+                  Instagram
+                </p>
+                <a
+                  href={site.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="display text-2xl text-warm transition-colors hover:text-cool"
+                >
+                  {site.social.instagramHandle}
+                </a>
+              </div>
+
+              <div>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-cool">
+                  More
                 </p>
                 <ul className="flex flex-wrap gap-4">
-                  <li>
-                    <a
-                      href={site.social.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-paper/80 hover:text-warm"
-                    >
-                      Instagram
-                    </a>
-                  </li>
                   <li>
                     <a
                       href={site.social.vimeo}

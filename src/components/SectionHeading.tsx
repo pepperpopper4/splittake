@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ColorWords } from "@/components/ColorWords";
 
 type Accent = "warm" | "cool" | "lime" | "sun" | "pink" | "violet";
 
@@ -35,11 +36,15 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2
-        className={`bleed-title ${blot ? "blot-text" : "text-paper"} max-w-[12ch]`}
-      >
-        {title}
-      </h2>
+      {blot ? (
+        <ColorWords
+          as="h2"
+          text={title}
+          className="bleed-title blot-text max-w-[14ch]"
+        />
+      ) : (
+        <h2 className="bleed-title max-w-[12ch] text-paper">{title}</h2>
+      )}
     </div>
   );
 }
@@ -54,7 +59,7 @@ export function TextLink({
   return (
     <Link
       href={href}
-      className="display inline-flex items-center gap-2 text-warm transition-colors hover:text-lime"
+      className="display inline-flex items-center gap-2 text-warm transition-colors hover:text-cool"
     >
       {children}
       <span aria-hidden>→</span>

@@ -3,7 +3,7 @@
 :root {
   --ink: #0f0f0f;
   --paper: #f5f2ed;
-  /* Static accent palette — old-Apple rainbow crossed with the grind speckles */
+  /* Accent palette — solid word colors, grind-adjacent */
   --warm: #f5821f;
   --cool: #1e9bd7;
   --lime: #61bb46;
@@ -134,38 +134,14 @@ body {
   opacity: 0.55;
 }
 
-/* --- Static rainbow display lettering — old-Apple stripes with grind flecks --- */
-
+/* Display titles use ColorWords for per-word solid accents.
+   Keep these classes as font helpers for any leftover markup. */
 .blot-text,
 .blot-text-static {
   font-family: var(--font-display), system-ui, sans-serif;
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 0.9;
-  background-image:
-    radial-gradient(circle at 12% 18%, rgba(245, 242, 237, 0.55) 0 1.4px, transparent 1.8px),
-    radial-gradient(circle at 38% 64%, rgba(15, 15, 15, 0.35) 0 1.2px, transparent 1.6px),
-    radial-gradient(circle at 63% 30%, rgba(245, 242, 237, 0.5) 0 1px, transparent 1.4px),
-    radial-gradient(circle at 82% 74%, rgba(15, 15, 15, 0.3) 0 1.5px, transparent 1.9px),
-    linear-gradient(
-      to bottom,
-      #61bb46 0%,
-      #61bb46 17%,
-      #fdb827 17%,
-      #fdb827 34%,
-      #f5821f 34%,
-      #f5821f 50%,
-      #e03a3e 50%,
-      #e03a3e 66%,
-      #963d97 66%,
-      #963d97 83%,
-      #009ddc 83%,
-      #009ddc 100%
-    );
-  background-size: 90px 90px, 110px 110px, 70px 70px, 130px 130px, 100% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
 .display {
@@ -209,7 +185,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.9rem 1.6rem;
-  background: var(--warm);
+  background: linear-gradient(135deg, var(--warm) 0%, var(--warm) 55%, var(--cool) 55%, var(--cool) 100%);
   color: #0f0f0f;
   font-family: var(--font-display), system-ui, sans-serif;
   font-weight: 700;
@@ -218,14 +194,15 @@ body {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  box-shadow: 3px 3px 0 color-mix(in srgb, var(--cool) 70%, #0f0f0f);
 }
 
 .btn-primary:hover {
-  background: var(--lime);
+  filter: brightness(1.06);
   transform: translateY(-2px);
-  box-shadow: 4px 4px 0 var(--cool);
+  box-shadow: 5px 5px 0 var(--cool);
 }
 
 .btn-ghost {
@@ -240,15 +217,16 @@ body {
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
-  border: 1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+  border: 1px solid var(--cool);
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-ghost:hover {
   border-color: var(--warm);
   color: var(--warm);
-  background: color-mix(in srgb, var(--warm) 8%, transparent);
+  background: color-mix(in srgb, var(--warm) 10%, transparent);
+  box-shadow: 3px 3px 0 color-mix(in srgb, var(--cool) 50%, transparent);
 }
 
 .input-field {

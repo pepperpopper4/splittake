@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ColorWords } from "@/components/ColorWords";
 import { SectionHeading } from "@/components/SectionHeading";
 import { companyStory, processSteps, team } from "@/data/team";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Meet the two filmmakers behind Split Take Media.",
+  description:
+    "Meet Jacques Ciambra and Thomas McVay — the filmmakers behind Split Take Media.",
 };
+
+const roleColors = ["text-warm", "text-cool"];
+const nameColors = ["text-cool", "text-warm"];
 
 export default function AboutPage() {
   return (
@@ -38,21 +44,21 @@ export default function AboutPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={member.photo}
-                      alt=""
+                      alt={`Headshot placeholder for ${member.name}`}
                       className="h-full w-full object-cover"
                     />
                   </div>
                   <div className="p-6 md:p-8">
                     <p
                       className={`mb-2 text-xs font-semibold uppercase tracking-[0.16em] ${
-                        i === 0 ? "text-warm" : "text-lime"
+                        roleColors[i % roleColors.length]
                       }`}
                     >
                       {member.role}
                     </p>
                     <h3
                       className={`display text-3xl md:text-4xl ${
-                        i === 0 ? "text-cool" : "text-violet"
+                        nameColors[i % nameColors.length]
                       }`}
                     >
                       {member.name}
@@ -60,11 +66,32 @@ export default function AboutPage() {
                     <p className="mt-4 text-paper/75 leading-relaxed">
                       {member.bio}
                     </p>
+                    {member.linkedin ? (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-block text-sm font-semibold text-cool transition-colors hover:text-warm"
+                      >
+                        LinkedIn →
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </article>
             ))}
           </div>
+          <p className="mt-10 text-sm text-paper/60">
+            Follow the work on Instagram{" "}
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-warm transition-colors hover:text-cool"
+            >
+              {site.social.instagramHandle}
+            </a>
+          </p>
         </div>
       </section>
 
@@ -76,12 +103,15 @@ export default function AboutPage() {
           {processSteps.map((step, i) => (
             <div key={step.title} className="grind-panel p-6 md:p-8">
               <div className="relative z-10">
-                <p className="blot-text-static display mb-3 text-5xl">
-                  0{i + 1}
-                </p>
+                <ColorWords
+                  as="p"
+                  text={`0${i + 1}`}
+                  byLetter
+                  className="display blot-text mb-3 text-5xl"
+                />
                 <h3
                   className={`display text-2xl ${
-                    ["text-warm", "text-lime", "text-cool"][i % 3]
+                    ["text-warm", "text-cool", "text-sun"][i % 3]
                   }`}
                 >
                   {step.title}

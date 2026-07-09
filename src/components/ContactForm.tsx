@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { ColorWords } from "@/components/ColorWords";
 import { site } from "@/data/site";
 
 const projectTypes = [
@@ -63,7 +64,11 @@ export function ContactForm() {
     return (
       <div className="grind-panel p-8 md:p-10">
         <div className="relative z-10">
-          <p className="blot-text display text-4xl md:text-5xl">Got it.</p>
+          <ColorWords
+            as="p"
+            text="Got it."
+            className="display blot-text text-4xl md:text-5xl"
+          />
           <p className="mt-4 max-w-md text-paper/75">
             Thanks for reaching out — we&apos;ll get back within a couple of
             business days. Or ping us at{" "}

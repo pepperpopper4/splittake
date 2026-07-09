@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { BrandMark, ColorWords } from "@/components/ColorWords";
 import { navLinks, site } from "@/data/site";
 
-// One static accent per link — old-Apple rainbow order
 const navColors = ["text-lime", "text-sun", "text-warm", "text-pink"];
 
 export function SiteHeader() {
@@ -16,12 +16,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-paper/10 bg-ink/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <Link href="/" className="group relative" onClick={() => setOpen(false)}>
-          <span className="display text-xl tracking-tight text-paper md:text-2xl">
-            Split<span className="text-warm">Take</span>
-          </span>
-          <span className="ml-1 text-[10px] uppercase tracking-[0.2em] text-cool">
-            Media
-          </span>
+          <BrandMark size="sm" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -44,6 +39,14 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <a
+            href={site.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold tracking-tight text-warm transition-colors hover:text-cool"
+          >
+            {site.social.instagramHandle}
+          </a>
         </nav>
 
         <button
@@ -68,13 +71,23 @@ export function SiteHeader() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="blot-text-static display text-4xl"
+                  className="display text-4xl"
                 >
-                  {link.label}
+                  <ColorWords text={link.label} byLetter />
                 </Link>
               </li>
             ))}
-            <li className="pt-2 text-sm text-cool">{site.email}</li>
+            <li className="pt-2">
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-warm"
+              >
+                {site.social.instagramHandle}
+              </a>
+            </li>
+            <li className="text-sm text-cool">{site.email}</li>
           </ul>
         </nav>
       ) : null}
