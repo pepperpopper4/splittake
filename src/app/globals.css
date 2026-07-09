@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0f0f0f;
+  --paper: #f5f2ed;
+  --warm: #c4785a;
+  --cool: #6b7f8c;
+  --lime: #c8e06a;
+  --pink: #e87a9a;
+  --violet: #8b7ec8;
+  --cream: #f5f2ed;
+  --muted: #8a8a8a;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-warm: var(--warm);
+  --color-cool: var(--cool);
+  --color-lime: var(--lime);
+  --color-pink: var(--pink);
+  --color-violet: var(--violet);
+  --color-cream: var(--cream);
+  --color-muted: var(--muted);
+  --font-display: var(--font-syne);
+  --font-body: var(--font-dm-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--warm);
+  color: var(--ink);
+}
+
+/* Nike Grind speckled rubber texture */
+.grind-bg {
+  background-color: #121212;
+  background-image:
+    radial-gradient(circle at 12% 18%, #c4785a 0 1.2px, transparent 1.6px),
+    radial-gradient(circle at 28% 62%, #6b7f8c 0 1.8px, transparent 2.2px),
+    radial-gradient(circle at 44% 22%, #c8e06a 0 1px, transparent 1.4px),
+    radial-gradient(circle at 61% 78%, #e87a9a 0 1.5px, transparent 1.9px),
+    radial-gradient(circle at 73% 34%, #8b7ec8 0 1.1px, transparent 1.5px),
+    radial-gradient(circle at 88% 55%, #c4785a 0 2px, transparent 2.4px),
+    radial-gradient(circle at 8% 88%, #6b7f8c 0 1.3px, transparent 1.7px),
+    radial-gradient(circle at 52% 48%, #c8e06a 0 0.9px, transparent 1.3px),
+    radial-gradient(circle at 35% 40%, #e87a9a 0 1.4px, transparent 1.8px),
+    radial-gradient(circle at 95% 12%, #8b7ec8 0 1.6px, transparent 2px),
+    radial-gradient(circle at 18% 45%, #c4785a 0 0.8px, transparent 1.2px),
+    radial-gradient(circle at 67% 15%, #6b7f8c 0 1.2px, transparent 1.6px),
+    radial-gradient(circle at 80% 90%, #c8e06a 0 1.7px, transparent 2.1px),
+    radial-gradient(circle at 5% 55%, #e87a9a 0 1px, transparent 1.4px),
+    radial-gradient(circle at 48% 92%, #8b7ec8 0 1.3px, transparent 1.7px);
+  background-size: 180px 180px, 220px 220px, 160px 160px, 200px 200px, 240px 240px,
+    190px 190px, 210px 210px, 170px 170px, 230px 230px, 150px 150px, 195px 195px,
+    215px 215px, 175px 175px, 205px 205px, 185px 185px;
+  background-position: 0 0, 40px 20px, 80px 60px, 10px 90px, 120px 30px, 60px 110px,
+    140px 70px, 30px 50px, 100px 10px, 70px 130px, 20px 40px, 110px 80px, 50px 100px,
+    130px 20px, 90px 120px;
+}
+
+.grind-panel {
+  position: relative;
+  overflow: hidden;
+  background: #1a1a1a;
+  border: 1px solid rgba(245, 242, 237, 0.08);
+}
+
+.grind-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.85;
+  background-image:
+    radial-gradient(circle at 10% 20%, #c4785a 0 2px, transparent 2.5px),
+    radial-gradient(circle at 30% 70%, #6b7f8c 0 3px, transparent 3.5px),
+    radial-gradient(circle at 55% 25%, #c8e06a 0 1.5px, transparent 2px),
+    radial-gradient(circle at 75% 80%, #e87a9a 0 2.5px, transparent 3px),
+    radial-gradient(circle at 90% 40%, #8b7ec8 0 2px, transparent 2.5px),
+    radial-gradient(circle at 45% 55%, #c4785a 0 1px, transparent 1.5px),
+    radial-gradient(circle at 15% 85%, #c8e06a 0 2px, transparent 2.5px),
+    radial-gradient(circle at 65% 10%, #6b7f8c 0 1.5px, transparent 2px);
+  background-size: 120px 120px;
+  mix-blend-mode: screen;
+}
+
+/* Blotchy multicolor display lettering — Nike Grind plate vibe */
+.blot-text {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  background-image:
+    radial-gradient(ellipse 40% 50% at 15% 40%, #c4785a 0%, transparent 55%),
+    radial-gradient(ellipse 35% 45% at 45% 20%, #c8e06a 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 70% 60%, #6b7f8c 0%, transparent 55%),
+    radial-gradient(ellipse 30% 50% at 90% 30%, #e87a9a 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 30% 80%, #8b7ec8 0%, transparent 50%),
+    radial-gradient(ellipse 25% 40% at 55% 70%, #c4785a 0%, transparent 45%),
+    linear-gradient(135deg, #f5f2ed 0%, #d4d0c8 40%, #f5f2ed 70%, #c8c4bc 100%);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: blot-shift 12s ease-in-out infinite alternate;
+}
+
+@keyframes blot-shift {
+  from {
+    background-position: 0% 40%;
+  }
+  to {
+    background-position: 100% 60%;
+  }
+}
+
+.blot-text-static {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  background-image:
+    radial-gradient(ellipse 50% 60% at 20% 30%, #c4785a 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 60% 20%, #c8e06a 0%, transparent 55%),
+    radial-gradient(ellipse 45% 55% at 80% 70%, #6b7f8c 0%, transparent 55%),
+    radial-gradient(ellipse 35% 45% at 40% 80%, #e87a9a 0%, transparent 50%),
+    linear-gradient(120deg, #f5f2ed, #e8e4dc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.display {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.bleed-title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  font-size: clamp(3.5rem, 14vw, 9rem);
+  margin-left: -0.04em;
+  overflow: visible;
+}
+
+.accent-warm {
+  color: var(--warm);
+}
+.accent-cool {
+  color: var(--cool);
+}
+.accent-lime {
+  color: var(--lime);
+}
+.accent-pink {
+  color: var(--pink);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  background: var(--warm);
+  color: var(--ink);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+.btn-primary:hover {
+  background: var(--lime);
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--cool);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  background: transparent;
+  color: var(--paper);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid rgba(245, 242, 237, 0.25);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--warm);
+  color: var(--warm);
+  background: rgba(196, 120, 90, 0.08);
+}
+
+.input-field {
+  width: 100%;
+  background: rgba(245, 242, 237, 0.04);
+  border: 1px solid rgba(245, 242, 237, 0.15);
+  color: var(--paper);
+  padding: 0.85rem 1rem;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--warm);
+}
+
+.input-field::placeholder {
+  color: var(--muted);
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cool);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blot-text {
+    animation: none;
+  }
+  .fade-up {
+    animation: none;
+  }
+}
