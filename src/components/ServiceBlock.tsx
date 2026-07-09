@@ -26,7 +26,9 @@ export function ServiceBlock({ service }: { service: Service }) {
         >
           Service
         </p>
-        <h3 className="display mb-4 text-3xl text-paper md:text-4xl">
+        <h3
+          className={`display mb-4 text-3xl md:text-4xl ${accentText[service.accent]}`}
+        >
           {service.title}
         </h3>
         <p className="mb-6 max-w-xl text-paper/75 leading-relaxed">

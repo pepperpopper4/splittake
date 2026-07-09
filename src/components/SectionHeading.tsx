@@ -1,9 +1,21 @@
 import Link from "next/link";
 
+type Accent = "warm" | "cool" | "lime" | "sun" | "pink" | "violet";
+
+const accentText: Record<Accent, string> = {
+  warm: "text-warm",
+  cool: "text-cool",
+  lime: "text-lime",
+  sun: "text-sun",
+  pink: "text-pink",
+  violet: "text-violet",
+};
+
 type SectionHeadingProps = {
   eyebrow?: string;
   title: string;
   blot?: boolean;
+  accent?: Accent;
   className?: string;
 };
 
@@ -11,12 +23,15 @@ export function SectionHeading({
   eyebrow,
   title,
   blot = false,
+  accent = "cool",
   className = "",
 }: SectionHeadingProps) {
   return (
     <div className={`mb-10 md:mb-14 ${className}`}>
       {eyebrow ? (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-cool">
+        <p
+          className={`mb-3 text-xs font-semibold uppercase tracking-[0.18em] ${accentText[accent]}`}
+        >
           {eyebrow}
         </p>
       ) : null}

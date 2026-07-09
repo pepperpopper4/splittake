@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navLinks, site } from "@/data/site";
 
+// One static accent per link — old-Apple rainbow order
+const navColors = ["text-lime", "text-sun", "text-warm", "text-pink"];
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -22,15 +25,19 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => {
+          {navLinks.map((link, i) => {
             const active =
               pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-semibold uppercase tracking-[0.14em] transition-colors ${
-                  active ? "text-warm" : "text-paper/70 hover:text-paper"
+                className={`text-sm font-semibold uppercase tracking-[0.14em] transition-opacity ${
+                  navColors[i % navColors.length]
+                } ${
+                  active
+                    ? "underline decoration-2 underline-offset-8"
+                    : "opacity-80 hover:opacity-100"
                 }`}
               >
                 {link.label}
