@@ -83,12 +83,13 @@ export function BrandMark({
   return (
     <span className={`brand-mark inline-flex items-baseline ${className}`}>
       <span className={titleClass}>
-        <span style={{ color: "#f5f2ed" }}>Split</span>
-        <span style={{ color: "#f5821f" }}>Take</span>
+        <span className="brand-split">Split</span>
+        <span className="brand-take">Take</span>
+        <span className="brand-period" aria-hidden>
+          .
+        </span>
       </span>
-      <span className={mediaClass} style={{ color: "#1e9bd7" }}>
-        Media
-      </span>
+      <span className={`brand-media ${mediaClass}`}>Media</span>
     </span>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ColorWords } from "@/components/ColorWords";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -40,12 +41,14 @@ export default function AboutPage() {
             {team.map((member, i) => (
               <article key={member.name} className="grind-panel overflow-hidden">
                 <div className="relative z-10">
-                  <div className="aspect-[4/3] overflow-hidden bg-ink">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                  <div className="relative aspect-[4/3] overflow-hidden bg-ink">
+                    <Image
                       src={member.photo}
-                      alt={`Headshot placeholder for ${member.name}`}
-                      className="h-full w-full object-cover"
+                      alt={`Headshot of ${member.name}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-top"
+                      priority={i === 0}
                     />
                   </div>
                   <div className="p-6 md:p-8">

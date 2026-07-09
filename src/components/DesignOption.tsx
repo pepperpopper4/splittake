@@ -27,8 +27,8 @@ export const DESIGN_OPTIONS = [
   {
     id: "3" as const,
     label: "Option 3",
-    name: "Studio",
-    blurb: "Bright cut, bold geometry",
+    name: "Marquee",
+    blurb: "Light editorial, wide reel",
   },
 ] as const;
 

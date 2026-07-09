@@ -11,14 +11,14 @@ export const team: TeamMember[] = [
     name: "Jacques Ciambra",
     role: "Director / Editor",
     bio: "Emerson College film school graduate focused in screenwriting and directing. Over the past few years I've worked on various narrative short films, and directed short films as well as ads for peers in my graduating class. Combining my directing projects with my love of editing, I've edited everything from Bachelor of Fine Arts thirty-minute films to short social media spots during an internship with the non-profit WORDTheatre. Currently I'm expanding my creative work to commercial directing — whether that be a short-form ad or a more traditional video advertisement.",
-    photo: "/placeholders/founder-jacques.svg",
+    photo: "/team/jacques-ciambra.jpg",
     linkedin: "https://www.linkedin.com/in/jacques-ciambra-22850a276/",
   },
   {
     name: "Thomas McVay",
     role: "Cinematographer / Lighting",
     bio: "Emerson College film school graduate focused in cinematography and lighting. Over the course of my college career I worked my way up from assisting the camera team to directing my own camera and lighting team. Most of my cinematography work consists of narrative short films and short SPEC video ads. College allowed me to hone in on my technical ability, as well as build up my own personal equipment stash. Moving into commercial work I want to create unique looks and aesthetics for each brand we work with, allowing their personal strengths to shine so their audience won't be able to look away.",
-    photo: "/placeholders/founder-thomas.svg",
+    photo: "/team/thomas-mcvay.jpg",
   },
 ];
 

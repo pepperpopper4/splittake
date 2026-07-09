@@ -6,9 +6,9 @@ import { VideoEmbed } from "@/components/VideoEmbed";
 import { useDesignOption } from "@/components/DesignOption";
 import { site } from "@/data/site";
 
-function CtaRow() {
+function CtaRow({ className = "" }: { className?: string }) {
   return (
-    <div className="mt-8 flex flex-wrap gap-3">
+    <div className={`mt-8 flex flex-wrap gap-3 ${className}`}>
       <Link href="/contact" className="btn-primary">
         Start a project
       </Link>
@@ -29,7 +29,9 @@ function HeroGrind() {
         <h1 className="display text-[clamp(3.2rem,11vw,6.5rem)] leading-[0.88]">
           <span className="text-paper">Split</span>
           <br />
-          <span className="text-warm">Take</span>
+          <span className="text-warm">
+            Take<span className="brand-period">.</span>
+          </span>
         </h1>
         <p className="mt-6 max-w-md text-lg leading-relaxed text-paper/75">
           {site.tagline}
@@ -82,36 +84,52 @@ function HeroCinema() {
   );
 }
 
-function HeroStudio() {
+/** Option 3 — stacked editorial layout, full-bleed reel (not a side-by-side grid). */
+function HeroMarquee() {
   return (
-    <section className="relative mx-auto max-w-7xl overflow-hidden px-5 pb-16 pt-10 md:px-8 md:pb-24 md:pt-16">
-      <div className="hero-studio-slash" aria-hidden />
-      <div className="relative z-10 grid items-end gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-12">
-        <div className="fade-up">
-          <div className="mb-6 inline-block bg-ink px-3 py-2 shadow-[4px_4px_0_#ff5a1f]">
-            <BrandMark size="lg" />
-          </div>
-          <h1 className="display text-[clamp(3rem,9vw,5.8rem)] leading-[0.92] text-paper">
-            Bold cuts.
+    <div className="hero-marquee">
+      <section className="mx-auto max-w-7xl px-5 pb-10 pt-12 md:px-8 md:pb-12 md:pt-16">
+        <div className="fade-up mx-auto max-w-4xl text-center">
+          <BrandMark size="lg" className="justify-center" />
+          <p className="hero-marquee-eyebrow mt-8">{site.name}</p>
+          <h1 className="hero-marquee-title mt-4">
+            Stories worth
             <br />
-            Clear stories.
+            <span className="text-cool">watching twice.</span>
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-paper/75">
+          <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-paper/70">
             {site.tagline}
           </p>
-          <CtaRow />
+          <CtaRow className="justify-center" />
         </div>
+      </section>
 
-        <div className="fade-up stagger-2 hero-studio-block">
+      <section className="hero-marquee-reel fade-up stagger-2" aria-label="Showreel">
+        <div className="hero-marquee-reel-bar hero-marquee-reel-bar--top" />
+        <div className="hero-marquee-reel-inner">
           <VideoEmbed
             vimeoId={site.showreelVimeoId}
             title="Split Take showreel"
             autoplay
             muted
+            className="aspect-[21/9] md:aspect-[2.4/1]"
           />
         </div>
+        <div className="hero-marquee-reel-bar hero-marquee-reel-bar--bottom" />
+      </section>
+
+      <div className="hero-marquee-ticker" aria-hidden>
+        <span>Commercial films</span>
+        <span className="text-warm">·</span>
+        <span>Social content</span>
+        <span className="text-cool">·</span>
+        <span>Post-production</span>
+        <span className="text-warm">·</span>
+        <span>Emerson-trained crew</span>
+        <span className="text-cool">·</span>
+        <span>Split Take Media</span>
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -119,6 +137,6 @@ export function HomeHero() {
   const { option } = useDesignOption();
 
   if (option === "2") return <HeroCinema />;
-  if (option === "3") return <HeroStudio />;
+  if (option === "3") return <HeroMarquee />;
   return <HeroGrind />;
 }
