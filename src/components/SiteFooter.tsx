@@ -4,9 +4,9 @@ import { navLinks, site } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-paper/10">
-      <div className="grind-panel">
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
+    <footer className="mt-8 border-t border-ink/10">
+      <div className="panel mx-auto max-w-7xl rounded-none border-x-0 border-b-0">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
           <div>
             <Link href="/" className="inline-block">
               <BrandMark size="lg" />
@@ -31,12 +31,12 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <a
                     href={link.href}
                     className="text-paper/80 transition-colors hover:text-warm"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -90,8 +90,10 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 text-xs text-muted md:px-8">
-        <p>© {new Date().getFullYear()} {site.name}</p>
-        <a href="#top" className="transition-colors hover:text-warm">
+        <p>
+          © {new Date().getFullYear()} {site.name}
+        </p>
+        <a href="#top" className="text-ink/60 transition-colors hover:text-warm">
           Back to top ↑
         </a>
       </div>

@@ -2,16 +2,10 @@ import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { categoryLabels } from "@/data/projects";
 
-const aspectClass: Record<Project["aspect"], string> = {
-  wide: "aspect-[16/10]",
-  tall: "aspect-[3/4]",
-  square: "aspect-square",
-};
-
 const categoryAccent: Record<Project["category"], string> = {
   commercial: "text-warm",
-  social: "text-cool",
-  post: "text-violet",
+  narrative: "text-cool",
+  music: "text-violet",
 };
 
 const titleAccents = [
@@ -25,7 +19,8 @@ const titleAccents = [
 
 function titleAccentFor(slug: string) {
   let hash = 0;
-  for (let i = 0; i < slug.length; i++) hash = (hash + slug.charCodeAt(i) * (i + 1)) % titleAccents.length;
+  for (let i = 0; i < slug.length; i++)
+    hash = (hash + slug.charCodeAt(i) * (i + 1)) % titleAccents.length;
   return titleAccents[hash];
 }
 
@@ -42,13 +37,11 @@ export function ProjectCard({
       className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-warm"
     >
       <article
-        className={`grind-panel relative overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 ${
+        className={`panel relative overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 ${
           large ? "min-h-[280px]" : ""
         }`}
       >
-        <div
-          className={`relative z-10 ${aspectClass[project.aspect]} w-full overflow-hidden`}
-        >
+        <div className="relative z-10 aspect-[16/10] w-full overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={project.thumbnail}

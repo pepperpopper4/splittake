@@ -8,8 +8,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 const filters: Array<"all" | ProjectCategory> = [
   "all",
   "commercial",
-  "social",
-  "post",
+  "narrative",
+  "music",
 ];
 
 export function ProjectGrid({ projects }: { projects: Project[] }) {
@@ -34,7 +34,7 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
               className={`px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
                 active
                   ? "bg-warm text-ink"
-                  : "border border-paper/20 text-paper/70 hover:border-warm hover:text-warm"
+                  : "border border-ink/20 text-ink/70 hover:border-warm hover:text-warm"
               }`}
             >
               {label}

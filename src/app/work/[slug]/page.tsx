@@ -45,26 +45,24 @@ export default async function ProjectPage({ params }: Props) {
           className="display blot-text mb-8 text-5xl md:text-7xl"
         />
 
-        <div className="grind-panel p-2 md:p-3">
-          <div className="relative z-10">
-            <VideoEmbed vimeoId={project.vimeoId} title={project.title} />
-          </div>
+        <div className="panel p-2 md:p-3">
+          <VideoEmbed vimeoId={project.vimeoId} title={project.title} />
         </div>
       </div>
 
-      <div className="band-white">
+      <div className="border-t border-ink/10">
         <div className="mx-auto max-w-7xl px-5 py-14 md:px-8 md:py-20">
           <div className="grid gap-10 md:grid-cols-[1.4fr_0.8fr]">
             <div>
               <h2 className="display mb-3 text-xl text-warm">
                 About the piece
               </h2>
-              <p className="max-w-2xl text-lg leading-relaxed text-paper/80">
+              <p className="max-w-2xl text-lg leading-relaxed text-ink/75">
                 {project.description}
               </p>
             </div>
-            <aside className="grind-panel p-6">
-              <div className="relative z-10 space-y-4 text-sm">
+            <aside className="panel p-6">
+              <div className="space-y-4 text-sm">
                 <div>
                   <p className="text-xs uppercase tracking-[0.14em] text-cool">
                     Credits
@@ -95,20 +93,20 @@ export default async function ProjectPage({ params }: Props) {
         {prev ? (
           <Link
             href={`/work/${prev.slug}`}
-            className="display text-paper/80 transition-colors hover:text-warm"
+            className="display text-ink/70 transition-colors hover:text-warm"
           >
             ← {prev.title}
           </Link>
         ) : (
           <span />
         )}
-        <Link href="/work" className="text-sm uppercase tracking-[0.14em] text-cool">
+        <Link href="/#commercial" className="text-sm uppercase tracking-[0.14em] text-cool">
           All work
         </Link>
         {next ? (
           <Link
             href={`/work/${next.slug}`}
-            className="display text-paper/80 transition-colors hover:text-warm"
+            className="display text-ink/70 transition-colors hover:text-warm"
           >
             {next.title} →
           </Link>

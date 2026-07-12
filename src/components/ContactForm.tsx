@@ -5,8 +5,9 @@ import { ColorWords } from "@/components/ColorWords";
 import { site } from "@/data/site";
 
 const projectTypes = [
-  "Brand / commercial film",
-  "Social / short-form",
+  "Commercial / ad",
+  "Narrative film",
+  "Music video",
   "Editing & post",
   "Not sure yet",
 ];
@@ -62,29 +63,27 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="grind-panel p-8 md:p-10">
-        <div className="relative z-10">
-          <ColorWords
-            as="p"
-            text="Got it."
-            className="display blot-text text-4xl md:text-5xl"
-          />
-          <p className="mt-4 max-w-md text-paper/75">
-            Thanks for reaching out — we&apos;ll get back within a couple of
-            business days. Or ping us at{" "}
-            <a href={`mailto:${site.email}`} className="text-warm underline">
-              {site.email}
-            </a>
-            .
-          </p>
-          <button
-            type="button"
-            className="btn-ghost mt-8"
-            onClick={() => setStatus("idle")}
-          >
-            Send another
-          </button>
-        </div>
+      <div className="panel p-8 md:p-10">
+        <ColorWords
+          as="p"
+          text="Got it."
+          className="display blot-text text-4xl md:text-5xl"
+        />
+        <p className="mt-4 max-w-md text-paper/75">
+          Thanks for reaching out — we&apos;ll get back within a couple of
+          business days. Or ping us at{" "}
+          <a href={`mailto:${site.email}`} className="text-warm underline">
+            {site.email}
+          </a>
+          .
+        </p>
+        <button
+          type="button"
+          className="btn-ghost mt-8"
+          onClick={() => setStatus("idle")}
+        >
+          Send another
+        </button>
       </div>
     );
   }

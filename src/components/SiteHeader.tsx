@@ -1,44 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { BrandMark, ColorWords } from "@/components/ColorWords";
 import { navLinks, site } from "@/data/site";
 
-const navColors = ["text-lime", "text-sun", "text-warm", "text-pink"];
+const navColors = ["text-warm", "text-cool", "text-violet", "text-pink", "text-lime"];
 
 export function SiteHeader() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="border-b border-paper/10 bg-ink/85 backdrop-blur-md">
+    <header className="site-header border-b border-paper/10 bg-surface-dark/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <Link href="/" className="group relative" onClick={() => setOpen(false)}>
           <BrandMark size="sm" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link, i) => {
-            const active =
-              pathname === link.href || pathname.startsWith(`${link.href}/`);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-semibold uppercase tracking-[0.14em] transition-opacity ${
-                  navColors[i % navColors.length]
-                } ${
-                  active
-                    ? "underline decoration-2 underline-offset-8"
-                    : "opacity-80 hover:opacity-100"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          {navLinks.map((link, i) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-semibold uppercase tracking-[0.14em] transition-opacity ${
+                navColors[i % navColors.length]
+              } opacity-80 hover:opacity-100`}
+            >
+              {link.label}
+            </a>
+          ))}
           <a
             href={site.social.instagram}
             target="_blank"
@@ -63,18 +53,18 @@ export function SiteHeader() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="grind-panel border-t border-paper/10 px-5 py-6 md:hidden"
+          className="border-t border-paper/10 bg-surface-dark px-5 py-6 md:hidden"
         >
-          <ul className="relative z-10 flex flex-col gap-4">
+          <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link
+                <a
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="display text-4xl"
                 >
                   <ColorWords text={link.label} byLetter />
-                </Link>
+                </a>
               </li>
             ))}
             <li className="pt-2">

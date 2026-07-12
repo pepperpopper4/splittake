@@ -40,10 +40,10 @@ export function SectionHeading({
         <ColorWords
           as="h2"
           text={title}
-          className="bleed-title blot-text max-w-[14ch]"
+          className="display blot-text max-w-[14ch] text-4xl md:text-6xl"
         />
       ) : (
-        <h2 className="bleed-title max-w-[12ch] text-paper">{title}</h2>
+        <h2 className="display max-w-[12ch] text-3xl text-ink md:text-5xl">{title}</h2>
       )}
     </div>
   );
