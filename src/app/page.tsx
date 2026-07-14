@@ -20,7 +20,6 @@ export default function HomePage() {
           <WorkSlideshow
             key={category}
             id={meta.id}
-            eyebrow={meta.eyebrow}
             title={meta.title}
             projects={getProjectsByCategory(category)}
           />

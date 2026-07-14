@@ -19,6 +19,7 @@ export const team: TeamMember[] = [
     role: "Cinematographer / Lighting",
     bio: "Emerson College film school graduate focused in cinematography and lighting. Over the course of my college career I worked my way up from assisting the camera team to directing my own camera and lighting team. Most of my cinematography work consists of narrative short films and short SPEC video ads. College allowed me to hone in on my technical ability, as well as build up my own personal equipment stash. Moving into commercial work I want to create unique looks and aesthetics for each brand we work with, allowing their personal strengths to shine so their audience won't be able to look away.",
     photo: "/team/thomas-mcvay.jpg",
+    linkedin: "https://www.linkedin.com/in/thomas-mcvay-bba045156/",
   },
 ];
 

@@ -7,14 +7,12 @@ import { VideoEmbed } from "@/components/VideoEmbed";
 
 type WorkSlideshowProps = {
   id: string;
-  eyebrow: string;
   title: string;
   projects: Project[];
 };
 
 export function WorkSlideshow({
   id,
-  eyebrow,
   title,
   projects,
 }: WorkSlideshowProps) {
@@ -45,10 +43,7 @@ export function WorkSlideshow({
   return (
     <section id={id} className="scroll-mt-20 border-t border-ink/10">
       <div className="mx-auto max-w-7xl px-5 pt-10 md:px-8 md:pt-14">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-warm">
-          {eyebrow}
-        </p>
-        <h2 className="display mt-2 text-3xl text-ink md:text-5xl">{title}</h2>
+        <h2 className="display text-3xl text-ink md:text-5xl">{title}</h2>
       </div>
 
       <div

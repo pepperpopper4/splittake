@@ -14,29 +14,26 @@ export type Project = {
 };
 
 export const categoryLabels: Record<ProjectCategory, string> = {
-  commercial: "Commercial video",
-  social: "Social media campaign",
-  photography: "Product photography",
+  commercial: "Commercial Video",
+  social: "Social Media Campaign",
+  photography: "Product Photography",
 };
 
 export const sectionMeta: Record<
   ProjectCategory,
-  { id: string; title: string; eyebrow: string }
+  { id: string; title: string }
 > = {
   commercial: {
     id: "commercial",
-    eyebrow: "Work",
-    title: "Commercial video",
+    title: "Commercial Video",
   },
   social: {
     id: "social",
-    eyebrow: "Work",
-    title: "Social media campaign",
+    title: "Social Media Campaign",
   },
   photography: {
     id: "photography",
-    eyebrow: "Work",
-    title: "Product photography",
+    title: "Product Photography",
   },
 };
 
