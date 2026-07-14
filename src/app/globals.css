@@ -39,16 +39,7 @@ html {
 }
 
 body {
-  background:
-    linear-gradient(180deg, rgba(30, 155, 215, 0.06) 0%, transparent 28%),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 31px,
-      rgba(21, 34, 56, 0.06) 31px,
-      rgba(21, 34, 56, 0.06) 32px
-    ),
-    #eef2f7;
+  background: #eef2f7;
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100vh;
@@ -60,16 +51,7 @@ body {
 }
 
 .pattern-bg {
-  background:
-    linear-gradient(180deg, rgba(30, 155, 215, 0.06) 0%, transparent 28%),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 31px,
-      rgba(21, 34, 56, 0.06) 31px,
-      rgba(21, 34, 56, 0.06) 32px
-    ),
-    #eef2f7;
+  background: #eef2f7;
 }
 
 .display {
