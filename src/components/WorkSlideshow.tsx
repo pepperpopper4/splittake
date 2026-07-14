@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import type { Project } from "@/data/projects";
 import { VideoEmbed } from "@/components/VideoEmbed";
@@ -39,6 +40,7 @@ export function WorkSlideshow({
   if (projects.length === 0) return null;
 
   const current = projects[index];
+  const isPhoto = current.mediaType === "photo";
 
   return (
     <section id={id} className="scroll-mt-20 border-t border-ink/10">
@@ -55,12 +57,24 @@ export function WorkSlideshow({
         onTouchEnd={onTouchEnd}
       >
         <div className="slideshow-video relative">
-          <VideoEmbed
-            key={current.slug}
-            vimeoId={current.vimeoId}
-            title={current.title}
-            className="absolute inset-0 h-full !aspect-auto"
-          />
+          {isPhoto ? (
+            <Image
+              key={current.slug}
+              src={current.thumbnail}
+              alt={current.title}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority={index === 0}
+            />
+          ) : (
+            <VideoEmbed
+              key={current.slug}
+              vimeoId={current.vimeoId!}
+              title={current.title}
+              className="absolute inset-0 h-full !aspect-auto"
+            />
+          )}
         </div>
 
         <div className="slideshow-controls">

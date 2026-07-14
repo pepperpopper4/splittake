@@ -5,10 +5,9 @@ import { ColorWords } from "@/components/ColorWords";
 import { site } from "@/data/site";
 
 const projectTypes = [
-  "Commercial / ad",
-  "Narrative film",
-  "Music video",
-  "Editing & post",
+  "Commercial Video",
+  "Social Media Campaign",
+  "Product Photography",
   "Not sure yet",
 ];
 

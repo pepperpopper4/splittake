@@ -4,8 +4,8 @@ import { categoryLabels } from "@/data/projects";
 
 const categoryAccent: Record<Project["category"], string> = {
   commercial: "text-warm",
-  narrative: "text-cool",
-  music: "text-violet",
+  social: "text-cool",
+  photography: "text-violet",
 };
 
 const titleAccents = [

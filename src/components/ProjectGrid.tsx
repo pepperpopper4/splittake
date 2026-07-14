@@ -8,8 +8,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 const filters: Array<"all" | ProjectCategory> = [
   "all",
   "commercial",
-  "narrative",
-  "music",
+  "social",
+  "photography",
 ];
 
 export function ProjectGrid({ projects }: { projects: Project[] }) {

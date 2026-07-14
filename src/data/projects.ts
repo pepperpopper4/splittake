@@ -1,21 +1,22 @@
-export type ProjectCategory = "commercial" | "narrative" | "music";
+export type ProjectCategory = "commercial" | "social" | "photography";
 
 export type Project = {
   slug: string;
   title: string;
   category: ProjectCategory;
   year: number;
-  // TODO: replace with real Vimeo IDs
-  vimeoId: string;
+  mediaType: "video" | "photo";
+  /** Vimeo ID — video projects only */
+  vimeoId?: string;
   thumbnail: string;
   description: string;
   credits: string;
 };
 
 export const categoryLabels: Record<ProjectCategory, string> = {
-  commercial: "Commercial & ads",
-  narrative: "Narrative films",
-  music: "Music videos",
+  commercial: "Commercial video",
+  social: "Social media campaign",
+  photography: "Product photography",
 };
 
 export const sectionMeta: Record<
@@ -25,17 +26,17 @@ export const sectionMeta: Record<
   commercial: {
     id: "commercial",
     eyebrow: "Work",
-    title: "Commercial & ads",
+    title: "Commercial video",
   },
-  narrative: {
-    id: "narrative",
+  social: {
+    id: "social",
     eyebrow: "Work",
-    title: "Narrative films",
+    title: "Social media campaign",
   },
-  music: {
-    id: "music",
+  photography: {
+    id: "photography",
     eyebrow: "Work",
-    title: "Music videos",
+    title: "Product photography",
   },
 };
 
@@ -45,6 +46,7 @@ export const projects: Project[] = [
     title: "Northline Brand Film",
     category: "commercial",
     year: 2025,
+    mediaType: "video",
     vimeoId: "76979871",
     thumbnail: "/placeholders/project-1.svg",
     description:
@@ -56,6 +58,7 @@ export const projects: Project[] = [
     title: "Atelier Spot",
     category: "commercial",
     year: 2024,
+    mediaType: "video",
     vimeoId: "76979871",
     thumbnail: "/placeholders/project-4.svg",
     description:
@@ -63,10 +66,23 @@ export const projects: Project[] = [
     credits: "Direction, DP, grade",
   },
   {
-    slug: "pulse-social-pack",
-    title: "Pulse Social Pack",
+    slug: "summit-launch-film",
+    title: "Summit Launch Film",
     category: "commercial",
     year: 2025,
+    mediaType: "video",
+    vimeoId: "76979871",
+    thumbnail: "/placeholders/project-3.svg",
+    description:
+      "Launch film for a new product line — macro detail, human hands, one hero shot that sells the craft.",
+    credits: "Direct, shoot, edit",
+  },
+  {
+    slug: "pulse-social-pack",
+    title: "Pulse Social Pack",
+    category: "social",
+    year: 2025,
+    mediaType: "video",
     vimeoId: "76979871",
     thumbnail: "/placeholders/project-2.svg",
     description:
@@ -74,70 +90,61 @@ export const projects: Project[] = [
     credits: "Concept, shoot, cutdowns",
   },
   {
-    slug: "harbor-short",
-    title: "Harbor",
-    category: "narrative",
+    slug: "daily-drop-series",
+    title: "Daily Drop Series",
+    category: "social",
     year: 2024,
-    vimeoId: "76979871",
-    thumbnail: "/placeholders/project-3.svg",
-    description:
-      "A narrative short about two strangers sharing a bench at the wrong hour — quiet tension, one decisive cut.",
-    credits: "Write, direct, edit",
-  },
-  {
-    slug: "last-light",
-    title: "Last Light",
-    category: "narrative",
-    year: 2025,
-    vimeoId: "76979871",
-    thumbnail: "/placeholders/project-6.svg",
-    description:
-      "Graduation thesis film. Handheld intimacy, available light, a ending that lands without explaining itself.",
-    credits: "Direct, shoot, post",
-  },
-  {
-    slug: "midnight-run",
-    title: "Midnight Run",
-    category: "narrative",
-    year: 2024,
+    mediaType: "video",
     vimeoId: "76979871",
     thumbnail: "/placeholders/project-5.svg",
     description:
-      "No-dialogue chase through empty city blocks — proof that momentum can carry a story.",
-    credits: "Direct, DP",
+      "A month of vertical content for a streetwear label — same energy, new angle every drop.",
+    credits: "Direct, edit, deliverables",
   },
   {
-    slug: "neon-echo",
-    title: "Neon Echo",
-    category: "music",
+    slug: "cafe-reel-pack",
+    title: "Café Reel Pack",
+    category: "social",
     year: 2025,
+    mediaType: "video",
     vimeoId: "76979871",
-    thumbnail: "/placeholders/project-2.svg",
+    thumbnail: "/placeholders/project-6.svg",
     description:
-      "Performance-led music video with strobing practicals and a single continuous camera move.",
-    credits: "Direct, light, edit",
+      "Instagram reel set for a local café — steam, pour, smile, repeat. Built for saves and shares.",
+    credits: "Shoot, edit, platform specs",
   },
   {
-    slug: "slow-burn",
-    title: "Slow Burn",
-    category: "music",
-    year: 2024,
-    vimeoId: "76979871",
-    thumbnail: "/placeholders/project-1.svg",
-    description:
-      "Indie artist visual — golden hour exteriors, slow push-ins, lyrics you feel before you hear.",
-    credits: "Direct, DP, color",
-  },
-  {
-    slug: "afterhours",
-    title: "After Hours",
-    category: "music",
+    slug: "atelier-product-still",
+    title: "Atelier Product Still",
+    category: "photography",
     year: 2025,
-    vimeoId: "76979871",
+    mediaType: "photo",
     thumbnail: "/placeholders/project-4.svg",
     description:
-      "Late-night club energy cut to the beat — mixed format, bold type, zero filler frames.",
-    credits: "Direct, edit",
+      "Hero product stills for a design studio launch — controlled light, honest texture, zero clutter.",
+    credits: "Photography, retouch",
+  },
+  {
+    slug: "northline-catalog",
+    title: "Northline Catalog",
+    category: "photography",
+    year: 2024,
+    mediaType: "photo",
+    thumbnail: "/placeholders/project-1.svg",
+    description:
+      "On-location product photography for an outdoor brand — gear in use, color that pops off the page.",
+    credits: "Photography, art direction",
+  },
+  {
+    slug: "pulse-lifestyle-set",
+    title: "Pulse Lifestyle Set",
+    category: "photography",
+    year: 2025,
+    mediaType: "photo",
+    thumbnail: "/placeholders/project-2.svg",
+    description:
+      "Lifestyle product shots for a fitness app — movement frozen mid-rep, brand colors baked into every frame.",
+    credits: "Photography, styling",
   },
 ];
 

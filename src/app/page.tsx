@@ -8,7 +8,7 @@ import {
   type ProjectCategory,
 } from "@/data/projects";
 
-const sections: ProjectCategory[] = ["commercial", "narrative", "music"];
+const sections: ProjectCategory[] = ["commercial", "social", "photography"];
 
 export default function HomePage() {
   return (

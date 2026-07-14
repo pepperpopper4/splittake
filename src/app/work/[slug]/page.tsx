@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ColorWords } from "@/components/ColorWords";
@@ -32,6 +33,7 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound();
 
   const { prev, next } = getAdjacentProjects(slug);
+  const isPhoto = project.mediaType === "photo";
 
   return (
     <article>
@@ -45,8 +47,21 @@ export default async function ProjectPage({ params }: Props) {
           className="display blot-text mb-8 text-5xl md:text-7xl"
         />
 
-        <div className="panel p-2 md:p-3">
-          <VideoEmbed vimeoId={project.vimeoId} title={project.title} />
+        <div className="panel overflow-hidden p-2 md:p-3">
+          {isPhoto ? (
+            <div className="relative aspect-[16/10] w-full">
+              <Image
+                src={project.thumbnail}
+                alt={project.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 1200px"
+                className="object-cover"
+                priority
+              />
+            </div>
+          ) : (
+            <VideoEmbed vimeoId={project.vimeoId!} title={project.title} />
+          )}
         </div>
       </div>
 
@@ -100,7 +115,10 @@ export default async function ProjectPage({ params }: Props) {
         ) : (
           <span />
         )}
-        <Link href="/#commercial" className="text-sm uppercase tracking-[0.14em] text-cool">
+        <Link
+          href={`/#${project.category}`}
+          className="text-sm uppercase tracking-[0.14em] text-cool"
+        >
           All work
         </Link>
         {next ? (

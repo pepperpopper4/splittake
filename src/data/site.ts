@@ -1,8 +1,8 @@
 export const site = {
   name: "Split Take Media",
-  tagline: "Commercial films. Narrative shorts. Music videos.",
+  tagline: "Commercial video. Social campaigns. Product photography.",
   description:
-    "A two-person film studio making bold commercial work, narrative films, and music videos.",
+    "A two-person studio making commercial video, social media campaigns, and product photography.",
   email: "hello@splittakemedia.com", // TODO: replace with real email
   social: {
     instagram: "https://www.instagram.com/splittake.media/",
@@ -14,9 +14,9 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { href: "#commercial", label: "Ads" },
-  { href: "#narrative", label: "Narrative" },
-  { href: "#music", label: "Music" },
+  { href: "#commercial", label: "Commercial" },
+  { href: "#social", label: "Social" },
+  { href: "#photography", label: "Photography" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ] as const;

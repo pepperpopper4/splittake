@@ -26,7 +26,7 @@ export const companyStory = {
   headline: "Two filmmakers. One split take.",
   body: [
     "Split Take Media is Jacques Ciambra and Thomas McVay — Emerson College film grads who kept ending up on the same sets, finishing each other's shots, and arguing about cuts until they were better.",
-    "We make commercial films, narrative shorts, and music videos for brands and artists that want work with actual texture. Not stock-smooth. Not over-styled. Just sharp storytelling that moves.",
+    "We make commercial video, social media campaigns, and product photography for brands that want work with actual texture. Not stock-smooth. Not over-styled. Just sharp storytelling that moves.",
   ],
 };
 
